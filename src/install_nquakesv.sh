@@ -365,8 +365,7 @@ nqecho
 # Find out what architecture to use
 binary=$(uname -m)
 architecture=$(arch)
-#armhf_source="https://raw.githubusercontent.com/axmac/nquake-arm-hf/master/sv-bin-armhf.zip"
-armhf_source="https://raw.githubusercontent.com/axmac/nquake-arm-hf/feature/add-armhf-support/sv-bin-armhf.zip"
+armhf_source="https://raw.githubusercontent.com/axmac/nquake-arm-hf/master/sv-bin-armhf.zip"
 
 # Download all the packages
 nqecho "=== Downloading ==="
