@@ -365,16 +365,16 @@ nqecho
 # Find out what architecture to use
 binary=$(uname -m)
 architecture=$(arch)
-armhf_source="https://raw.githubusercontent.com/axmac/nquake-arm-hf/master/sv-bin-armhf.zip"
+armhf_source="https://raw.githubusercontent.com/axmac/nquake-arm-hf/master"
 
 # Download all the packages
 nqecho "=== Downloading ==="
-nqwget -O qsw106.zip ${mirror}/qsw106.zip || error "Failed to download ${mirror}/qsw106.zip"
-[ ! -s "qsw106.zip" ] && error "Downloaded qwsv106.zip but file is empty?!"
-nqwget -O sv-gpl.zip ${mirror}/sv-gpl.zip || error "Failed to download ${mirror}/sv-gpl.zip"
-[ ! -s "sv-gpl.zip" ] && error "Downloaded sv-gpl.zip but file is empty?!"
-nqwget -O sv-non-gpl.zip ${mirror}/sv-non-gpl.zip || error "Failed to download ${mirror}/sv-non-gpl.zip"
-[ ! -s "sv-non-gpl.zip" ] && error "Downloaded sv-non-gpl.zip but file is empty?!"
+# nqwget -O qsw106.zip ${mirror}/qsw106.zip || error "Failed to download ${mirror}/qsw106.zip"
+# [ ! -s "qsw106.zip" ] && error "Downloaded qwsv106.zip but file is empty?!"
+# nqwget -O sv-gpl.zip ${mirror}/sv-gpl.zip || error "Failed to download ${mirror}/sv-gpl.zip"
+# [ ! -s "sv-gpl.zip" ] && error "Downloaded sv-gpl.zip but file is empty?!"
+# nqwget -O sv-non-gpl.zip ${mirror}/sv-non-gpl.zip || error "Failed to download ${mirror}/sv-non-gpl.zip"
+# [ ! -s "sv-non-gpl.zip" ] && error "Downloaded sv-non-gpl.zip but file is empty?!"
 [ "$architecture" = "armv6l" ] && {
   nqwget -O sv-bin-armhf.zip ${armhf_source}/sv-bin-armhf.zip || error "Failed to download ${armhf_source}/sv-bin-armhf.zip"
   [ ! -s "sv-bin-armhf.zip" ] && error "Downloaded sv-bin-armhf.zip but file is empty?!"
