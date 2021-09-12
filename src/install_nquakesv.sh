@@ -364,6 +364,8 @@ nqecho
 
 # Find out what architecture to use
 binary=$(uname -m)
+architecture=$(arch)
+armhf_source="https://raw.githubusercontent.com/axmac/nquake-arm-hf/master/sv-bin-armhf.zip"
 
 # Download all the packages
 nqecho "=== Downloading ==="
@@ -373,12 +375,17 @@ nqwget -O sv-gpl.zip ${mirror}/sv-gpl.zip || error "Failed to download ${mirror}
 [ ! -s "sv-gpl.zip" ] && error "Downloaded sv-gpl.zip but file is empty?!"
 nqwget -O sv-non-gpl.zip ${mirror}/sv-non-gpl.zip || error "Failed to download ${mirror}/sv-non-gpl.zip"
 [ ! -s "sv-non-gpl.zip" ] && error "Downloaded sv-non-gpl.zip but file is empty?!"
-[ "$binary" = "x86_64" ] && {
-  nqwget -O sv-bin-x64.zip ${mirror}/sv-bin-x64.zip || error "Failed to download ${mirror}/sv-bin-x64.zip"
-  [ ! -s "sv-bin-x64.zip" ] && error "Downloaded sv-bin-x64.zip but file is empty?!"
+[ "$architecture" = "armv6l" ] && {
+  nqwget -O sv-bin-armhf.zip ${armhf_source}/sv-bin-armhf.zip || error "Failed to download ${armhf_source}/sv-bin-armhf.zip"
+  [ ! -s "sv-bin-armhf.zip" ] && error "Downloaded sv-bin-armhf.zip but file is empty?!"
 } || {
-  nqwget -O sv-bin-x86.zip ${mirror}/sv-bin-x86.zip || error "Failed to download ${mirror}/sv-bin-x86.zip"
-  [ ! -s "sv-bin-x86.zip" ] && error "Downloaded sv-bin-x86.zip but file is empty?!"
+  [ "$binary" = "x86_64" ] && {
+    nqwget -O sv-bin-x64.zip ${mirror}/sv-bin-x64.zip || error "Failed to download ${mirror}/sv-bin-x64.zip"
+    [ ! -s "sv-bin-x64.zip" ] && error "Downloaded sv-bin-x64.zip but file is empty?!"
+  } || {
+    nqwget -O sv-bin-x86.zip ${mirror}/sv-bin-x86.zip || error "Failed to download ${mirror}/sv-bin-x86.zip"
+    [ ! -s "sv-bin-x86.zip" ] && error "Downloaded sv-bin-x86.zip but file is empty?!"
+  }
 }
 nqwget -O sv-configs.zip ${mirror}/sv-configs.zip || error "Failed to download ${mirror}/sv-configs.zip"
 [ ! -s "sv-configs.zip" ] && error "Downloaded sv-configs.zip but file is empty?!"

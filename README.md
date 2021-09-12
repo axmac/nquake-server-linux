@@ -17,6 +17,12 @@ Run the following in a Linux shell:
 sh <(curl -s https://raw.githubusercontent.com/nQuake/server-linux/master/src/install_nquakesv.sh)
 ```
 
+For armhf (raspberry pi):
+
+```
+sh <(curl -s https://raw.githubusercontent.com/axmac/nquake-server-linux/master/src/install_nquakesv.sh)
+```
+
 You might need to install some prerequisites before running the install script:
 
 ```
